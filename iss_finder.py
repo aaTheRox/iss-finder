@@ -13,7 +13,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("./index.html")
+    iss_coordinates = show_iss_coordinates()
+    return render_template("./index.html", iss_coordinates=iss_coordinates)
 
 @app.route("/api/iss")
 def show_iss_coordinates():

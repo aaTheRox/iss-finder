@@ -1,0 +1,13 @@
+* {
+    padding: 0; 
+    margin: 0;
+}
+body {
+    background: black;
+}
+
+h2 {
+    color: #fff;
+    padding: 5px; 
+    text-align: center;
+}
