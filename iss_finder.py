@@ -3,6 +3,7 @@ import urllib.parse, json, http
 import requests
 from flask import Flask
 from flask import render_template
+import os
 
 def get_iss_info():
     url = "http://api.open-notify.org/iss-now.json"
@@ -23,4 +24,4 @@ def show_iss_coordinates():
         return data['iss_position']
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
