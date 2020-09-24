@@ -19,7 +19,7 @@ maptypes.vector.normal.map,
 });
 
 // Define a variable holding SVG mark-up that defines an icon image:
-var svgMarkup = 'static/issicon.png';
+var svgMarkup = 'static/space-station.png';
 
 // Create an icon, an object holding the latitude and longitude, and a marker:
 setInterval(() => {
