@@ -2,6 +2,9 @@
 var platform = new H.service.Platform({
 'apikey': 'MJ9vPBPTRzgEIldXgGph45VJyQ4b5_K5YQ480BMZAr8'
 });
+// Get an instance of the search service:
+var service = platform.getSearchService();
+
 
 // Obtain the default map types from the platform object
 var maptypes = platform.createDefaultLayers();
@@ -30,9 +33,37 @@ setInterval(() => {
         coords = {lat: parseFloat(data.latitude), lng: parseFloat(data.longitude)},
         marker = new H.map.Marker(coords, {icon: icon});
         // Add the marker to the map and center the map at the location of the marker:
-
         map.addObject(marker);
         map.setCenter(coords);
+
+        // Update text location
+    // Call the reverse geocode method with the geocoding parameters,
+    // the callback and an error callback function (called if a
+    // communication error occurs):
+
+    let current_position = '';
+
+    document.getElementById('iss').innerHTML = current_position;
+        service.reverseGeocode({
+            at: `${data.latitude},${data.longitude}`
+        }, (result) => {
+            console.log(result)
+
+            if(result.items.length > 0) {
+                result.items.forEach((item) => {
+                // Assumption: ui is instantiated
+                // Create an InfoBubble at the returned location with
+                // the address as its contents:
+                current_position = `${item.address.state} (${item.address.countryName})`
+                });
+
+            } else {
+                current_position = 'Orbiting over oceans';
+            }
+
+            document.getElementById('iss').innerHTML = current_position;
+
+        }, );
         }
     });
 
