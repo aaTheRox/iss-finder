@@ -53,7 +53,7 @@ setInterval(() => {
                 // Assumption: ui is instantiated
                 // Create an InfoBubble at the returned location with
                 // the address as its contents:
-                current_position = `${item.address.state} (${item.address.countryName})`
+                current_position = `${item.address.state==undefined ? item.address.city : item.address.state} (${item.address.countryName})`
                 });
 
             } else {
