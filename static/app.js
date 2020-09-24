@@ -43,7 +43,6 @@ setInterval(() => {
 
     let current_position = '';
 
-    document.getElementById('iss').innerHTML = current_position;
         service.reverseGeocode({
             at: `${data.latitude},${data.longitude}`
         }, (result) => {
