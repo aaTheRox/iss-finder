@@ -1,6 +1,6 @@
 // Initialize the platform object:
 var platform = new H.service.Platform({
-'apikey': 'MJ9vPBPTRzgEIldXgGph45VJyQ4b5_K5YQ480BMZAr8'
+'apikey': 'gSqqb40SuuqG48b1ThWtJlint37KUS8L_BiNOuslrRc'
 });
 // Get an instance of the search service:
 var service = platform.getSearchService();
